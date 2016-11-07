@@ -42,12 +42,12 @@ func (a *App) Spin(msg string, fn func() error) error {
 	err := fn()
 	ticker.Stop()
 	m.Lock()
+	defer m.Unlock()
 	if err != nil {
 		fmt.Printf(pattern+"\n", red, "FAIL", reset, msg)
 		return err
 	}
 
 	fmt.Printf(pattern+"\n", blue, "OK", reset, msg)
-	m.Unlock()
 	return nil
 }
