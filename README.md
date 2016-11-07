@@ -4,6 +4,12 @@ this package is a golang cli framework that aims to be as simple to consume as p
 
 it contains the things that i personally find useful, and that's about it. if you have an idea for something to add feel free to open an issue.
 
+### features
+
+clinic automatically generates flags based on structs. in addition it will attempt to populate those structs based on a yaml formatted config file located at `$HOME/.config/APPNAME/config.yml`.
+
+if a struct field is tagged `prompt:"yes"` and that field is not set in the config file, and not passed as a flag, clinic will prompt the user for input at runtime.
+
 ### usage
 
 first, the smallest viable app
